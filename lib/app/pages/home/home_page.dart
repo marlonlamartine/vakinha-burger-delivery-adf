@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:vaquinha_burger_app/app/core/ui/base_state/base_state.dart';
+import 'package:vaquinha_burger_app/app/core/ui/helpers/loader.dart';
 
 import 'package:vaquinha_burger_app/app/core/ui/widgets/delivery_appbar.dart';
 
@@ -17,7 +18,7 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends BaseState<HomePage, HomeController> {
+class _HomePageState extends BaseState<HomePage, HomeController> with Loader {
   @override
   void onReady() {
     controller.loadProducts();
@@ -25,7 +26,7 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    //TODO reassistir aula 2 pra ver pq o loader n ta aparecendo
+    //TODO reassistir aula 2 parte 2 pra ver pq o loader n ta aparecendo
     return Scaffold(
       appBar: DeliveryAppbar(),
       body: BlocConsumer<HomeController, HomeState>(
